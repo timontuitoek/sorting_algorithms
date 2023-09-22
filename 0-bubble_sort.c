@@ -1,40 +1,44 @@
+#include <stdio.h>
+#include <stdlib.h>
 #include "sort.h"
 
 /**
- *swap - swaps two integers.
- *@xp: Pointer to the first integer.
- *@yp: Pointer tothe second integer.
- *Return: Nothing.
+ * bubble_sort - sorts an array of int in ascending order using BSA
+ * @array: pointer to array to sorted
+ * @size: size of array
+ *
+ * Return: Null
  */
-void swapped(int *p, int *y)
-{
-	int temp = *p;
-	*p = *y;
-	*y = temp;
-}
 
-/**
- *bubble_sort - Sorts an array of integers in ascending order
- *@array: An array of integers to be sorted.
- *@size: Size of the array.
- *Return: Nothing.
- */
 void bubble_sort(int *array, size_t size)
 {
-	size_t i, j;
+        size_t i, j;
+        int temp, swapped;
 
-	if (array == NULL || size == 0)
-		return;
+        if (array == NULL || size == 0)
+                return;
 
-	for (i = 0; i < size - 1; i++)
-	{
-		for (j = 0; j < size - 1; j++)
-		{
-			if (array[j] > array[j + 1])
-			{
-				swapped(&array[j], &array[j + 1]);
-				print_array(array, size);
-			}
-		}
-	}
+        for (i = 0; i < size - 1; i++)
+        {
+                swapped = 0;
+
+                for (j = 0; j < size - i - 1; j++)
+                {
+                        if (array[j] > array[j + 1])
+                        {
+                        /*swap array[j] and array[j + 1]*/
+                        temp = array[j];
+                        array[j] = array[j + 1];
+                        array[j + 1] = temp;
+
+                        /*print array after each swap*/
+                        print_array(array, size);
+                        swapped = 1;
+                        }
+                }
+
+        /*if no elements is swapped in inner loop, array is sorted*/
+        if (swapped == 0)
+                break;
+        }
 }
