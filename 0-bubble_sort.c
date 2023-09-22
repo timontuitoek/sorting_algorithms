@@ -4,10 +4,11 @@
 #include "sort.h"
 
 /**
- * bubble_sort - sorts an array of intergers in ascending order using
- * bubble sort algorithm
+ * bubble_sort - sorts an array of int in ascending order using BSA
  * @array: pointer to array to sorted
  * @size: size of array
+ *
+ * Return: Null
  */
 
 void bubble_sort(int *array, size_t size)
@@ -15,7 +16,7 @@ void bubble_sort(int *array, size_t size)
 	size_t i, j;
 	int temp, swapped;
 
-	if (array == NULL || size < 2)
+	if (array == NULL || size == 0)
 		return;
 
 	for (i = 0; i < size - 1; i++)
