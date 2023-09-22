@@ -5,7 +5,7 @@
 
 /**
  * bubble_sort - sorts an array of intergers in ascending order using
- * 			bubble sort algorithm
+ * bubble sort algorithm
  * @array: pointer to array to sorted
  * @size: size of array
  */
