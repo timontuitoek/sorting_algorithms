@@ -13,9 +13,6 @@ void selection_sort(int *array, size_t size)
 	size_t i, k, min_index;
 	int temp;
 
-	if (array == NULL || size <= 1)
-		return;
-
 	for (i = 0; i < size - 1; i++)
 	{
 		min_index = i;
