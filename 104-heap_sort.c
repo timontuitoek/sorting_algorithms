@@ -46,7 +46,7 @@ void heap_sort(int *array, size_t size)
 {
 	int i;
 
-	if (array == NULL || size < 2)
+	if (array == NULL || size == 0)
 	return;
 
 	for (i = size / 2 - 1; i >= 0; i--)
