@@ -2,44 +2,49 @@
 
 /**
  * cocktail_sort_list - Sorts a doubly linked list in ascending order
- *                       using the Cocktail shaker sort algorithm.
+ *	using the Cocktail shaker sort algorithm.
  * @list: Pointer to a pointer to the head of the linked list.
  */
 void cocktail_sort_list(listint_t **list)
 {
-    int swapped = 1;
-    listint_t *start = *list, *end = NULL;
+	int swapped = 1;
+	listint_t *start = *list, *end = NULL;
 
-    while (swapped) {
-        swapped = 0;
+	while (swapped)
+	{
+	swapped = 0;
 
-        while (start->next != end) {
-            if (start->n > start->next->n) {
-                swap_nodes(list, start, start->next);
-                swapped = 1;
-                print_list(*list);
-            }
-            else
-                start = start->next;
-        }
+	while (start->next != end)
+	{
+	if (start->n > start->next->n)
+	{
+	swap_nodes(list, start, start->next);
+	swapped = 1;
+	print_list(*list);
+	}
+	else
+	start = start->next;
+	}
 
-        if (!swapped)
-            break;
+	if (!swapped)
+	break;
 
-        swapped = 0;
+	swapped = 0;
 
-        end = start;
+	end = start;
 
-        while (start->prev != NULL) {
-            if (start->n < start->prev->n) {
-                swap_nodes(list, start->prev, start);
-                swapped = 1;
-                print_list(*list);
-            }
-            else
-                start = start->prev;
-        }
-    }
+	while (start->prev != NULL)
+	{
+	if (start->n < start->prev->n)
+	{
+	swap_nodes(list, start->prev, start);
+	swapped = 1;
+	print_list(*list);
+	}
+	else
+	start = start->prev;
+	}
+	}
 }
 
 /**
@@ -50,16 +55,16 @@ void cocktail_sort_list(listint_t **list)
  */
 void swap_nodes(listint_t **list, listint_t *node1, listint_t *node2)
 {
-    if (node1->prev)
-        node1->prev->next = node2;
-    if (node2->next)
-        node2->next->prev = node1;
-    node1->next = node2->next;
-    node2->prev = node1->prev;
-    node1->prev = node2;
-    node2->next = node1;
+	if (node1->prev)
+	node1->prev->next = node2;
+	if (node2->next)
+	node2->next->prev = node1;
+	node1->next = node2->next;
+	node2->prev = node1->prev;
+	node1->prev = node2;
+	node2->next = node1;
 
-    if (!node2->prev)
-        *list = node2;
+	if (!node2->prev)
+	*list = node2;
 }
 
